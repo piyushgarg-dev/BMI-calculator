@@ -5,6 +5,11 @@ import 'widgets.dart';
 import 'constants.dart';
 
 class ResultsPage extends StatelessWidget {
+  final String bmiResult;
+  final String resultText;
+  final String interpetion;
+
+  ResultsPage({this.bmiResult, this.resultText, this.interpetion});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,19 +39,19 @@ class ResultsPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Text(
-                      'Normal',
+                      resultText,
                       style: TextStyle(
                           color: Colors.green,
                           fontSize: 22.0,
                           fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      '18.3',
+                      bmiResult,
                       style: TextStyle(
                           fontSize: 100.0, fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      'You should Eat more',
+                      interpetion,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 22.0,

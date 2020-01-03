@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'results_page.dart';
 import 'constants.dart';
+import 'calculation.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -238,8 +239,19 @@ class _MainScreenState extends State<MainScreen> {
           BottomButton(
             buttonTile: 'CALCULATE',
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ResultsPage()));
+              print(displayHeight);
+              print(weight);
+              CalculationBrain calc =
+                  CalculationBrain(height: displayHeight, weight: weight);
+
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ResultsPage(
+                            bmiResult: calc.calculateBMI(),
+                            resultText: calc.getResult(),
+                            interpetion: calc.getInterpetition(),
+                          )));
             },
           ),
         ],
