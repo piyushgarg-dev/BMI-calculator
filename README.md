@@ -1,4 +1,4 @@
-# bmi_calculator
+# Bmi_calculator
 
 ![Screen Shot](https://i.imgur.com/4VKFh2U.png)
 
