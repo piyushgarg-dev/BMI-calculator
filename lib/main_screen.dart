@@ -15,6 +15,8 @@ class _MainScreenState extends State<MainScreen> {
   Gender selectedGender;
   double height = 183;
   int displayHeight = 183;
+  int weight = 60;
+  int age = 20;
 
   void updateColor(Gender gender) {
     if (gender == Gender.male) {
@@ -114,7 +116,7 @@ class _MainScreenState extends State<MainScreen> {
                     onChanged: (value) {
                       setState(() {
                         height = value.round().toDouble();
-                        displayHeight = value.toInt();
+                        displayHeight = value.toInt() + 1;
                       });
                     },
                   ),
@@ -128,24 +130,149 @@ class _MainScreenState extends State<MainScreen> {
                 Expanded(
                   child: ReusableCard(
                     colour: inActiveCardColor,
+                    cardChild: Column(
+                      children: <Widget>[
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Text(
+                          'WEIGHT',
+                          style: TextStyle(
+                              fontSize: 18.0, color: Color(0xff8d8e98)),
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: TextStyle(
+                              fontSize: 50.0, fontWeight: FontWeight.w900),
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RoundedButton(
+                              child: Icon(FontAwesomeIcons.minus),
+                              onPress: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
+                            ),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            RoundedButton(
+                              child: Icon(FontAwesomeIcons.plus),
+                              onPress: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
                     colour: inActiveCardColor,
+                    cardChild: Column(
+                      children: <Widget>[
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Text(
+                          'AGE',
+                          style: TextStyle(
+                              fontSize: 18.0, color: Color(0xff8d8e98)),
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: TextStyle(
+                              fontSize: 50.0, fontWeight: FontWeight.w900),
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            RoundedButton(
+                              child: Icon(FontAwesomeIcons.minus),
+                              onPress: () {
+                                setState(() {
+                                  age--;
+                                });
+                              },
+                            ),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            RoundedButton(
+                              child: Icon(FontAwesomeIcons.plus),
+                              onPress: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-          Container(
-            color: bottonContainerColor,
-            margin: EdgeInsets.only(top: 10.0),
-            width: double.infinity,
-            height: bottomContainerHeight,
+          GestureDetector(
+            onTap: () {
+              print('Gender: $selectedGender');
+              print('Height: $displayHeight');
+              print('Weight $weight');
+              print('Age: $age');
+            },
+            child: Container(
+              color: bottonContainerColor,
+              margin: EdgeInsets.only(top: 10.0),
+              width: double.infinity,
+              height: bottomContainerHeight,
+              child: Center(
+                child: Text(
+                  'CALCULATE',
+                  style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w900),
+                ),
+              ),
+            ),
           ),
         ],
       ),
+    );
+  }
+}
+
+class RoundedButton extends StatelessWidget {
+  final Widget child;
+  final Function onPress;
+  RoundedButton({this.child, this.onPress});
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      child: child,
+      onPressed: onPress,
+      elevation: 6.0,
+      constraints: BoxConstraints.tightFor(width: 56.0, height: 56.0),
+      shape: CircleBorder(),
+      fillColor: Color(0xff4c4f5e),
     );
   }
 }
