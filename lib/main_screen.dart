@@ -1,7 +1,8 @@
+import 'package:bmi_calculator/results_page.dart';
 import 'package:bmi_calculator/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'results_page.dart';
 import 'constants.dart';
 
 class MainScreen extends StatefulWidget {
@@ -240,6 +241,8 @@ class _MainScreenState extends State<MainScreen> {
               print('Height: $displayHeight');
               print('Weight $weight');
               print('Age: $age');
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ResultsPage()));
             },
             child: Container(
               color: bottonContainerColor,
