@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 class IconContent extends StatelessWidget {
   final IconData icon;
@@ -45,6 +46,49 @@ class ReusableCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(10.0), color: colour),
         child: cardChild,
       ),
+    );
+  }
+}
+
+class BottomButton extends StatelessWidget {
+  final Function onTap;
+  final String buttonTile;
+
+  BottomButton({this.onTap, this.buttonTile});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        color: bottonContainerColor,
+        margin: EdgeInsets.only(top: 10.0),
+        width: double.infinity,
+        height: bottomContainerHeight,
+        child: Center(
+          child: Text(
+            buttonTile,
+            style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w900),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class RoundedButton extends StatelessWidget {
+  final Widget child;
+  final Function onPress;
+  RoundedButton({this.child, this.onPress});
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      child: child,
+      onPressed: onPress,
+      elevation: 6.0,
+      constraints: BoxConstraints.tightFor(width: 56.0, height: 56.0),
+      shape: CircleBorder(),
+      fillColor: Color(0xff4c4f5e),
     );
   }
 }
