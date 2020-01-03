@@ -68,7 +68,7 @@ class BottomButton extends StatelessWidget {
         child: Center(
           child: Text(
             buttonTile,
-            style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w900),
+            style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w900),
           ),
         ),
       ),

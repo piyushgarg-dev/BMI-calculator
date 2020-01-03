@@ -143,7 +143,7 @@ class _MainScreenState extends State<MainScreen> {
                               fontSize: 18.0, color: Color(0xff8d8e98)),
                         ),
                         SizedBox(
-                          height: 10.0,
+                          height: 5.0,
                         ),
                         Text(
                           weight.toString(),
@@ -151,7 +151,7 @@ class _MainScreenState extends State<MainScreen> {
                               fontSize: 50.0, fontWeight: FontWeight.w900),
                         ),
                         SizedBox(
-                          height: 10.0,
+                          height: 5.0,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -187,7 +187,7 @@ class _MainScreenState extends State<MainScreen> {
                     cardChild: Column(
                       children: <Widget>[
                         SizedBox(
-                          height: 10.0,
+                          height: 5.0,
                         ),
                         Text(
                           'AGE',
@@ -195,7 +195,7 @@ class _MainScreenState extends State<MainScreen> {
                               fontSize: 18.0, color: Color(0xff8d8e98)),
                         ),
                         SizedBox(
-                          height: 10.0,
+                          height: 5.0,
                         ),
                         Text(
                           age.toString(),
@@ -203,7 +203,7 @@ class _MainScreenState extends State<MainScreen> {
                               fontSize: 50.0, fontWeight: FontWeight.w900),
                         ),
                         SizedBox(
-                          height: 10.0,
+                          height: 5.0,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -217,7 +217,7 @@ class _MainScreenState extends State<MainScreen> {
                               },
                             ),
                             SizedBox(
-                              width: 10.0,
+                              width: 5.0,
                             ),
                             RoundedButton(
                               child: Icon(FontAwesomeIcons.plus),
