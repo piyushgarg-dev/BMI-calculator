@@ -2,12 +2,7 @@ import 'package:bmi_calculator/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-const bottomContainerHeight = 80.0;
-const activeColor = Color(0XFFEB1555);
-const inActiveCardColor = Color(0xff111328);
-const bottonContainerColor = Color(0XFFEB1555);
-
-enum Gender { male, female }
+import 'constants.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -95,11 +90,14 @@ class _MainScreenState extends State<MainScreen> {
                     height: 10.0,
                   ),
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
                     mainAxisAlignment: MainAxisAlignment.center,
+                    textBaseline: TextBaseline.alphabetic,
                     children: <Widget>[
                       Text(
                         '$displayHeight',
-                        style: TextStyle(fontSize: 40.0),
+                        style: TextStyle(
+                            fontSize: 50.0, fontWeight: FontWeight.w900),
                       ),
                       Text(
                         ' cm',
@@ -111,7 +109,7 @@ class _MainScreenState extends State<MainScreen> {
                   Slider(
                     activeColor: activeColor,
                     min: 100,
-                    max: 200,
+                    max: 220,
                     value: height,
                     onChanged: (value) {
                       setState(() {

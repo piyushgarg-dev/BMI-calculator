@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'main_screen.dart';
+import 'constants.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,9 +15,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'BMI Calculator',
-      theme: ThemeData.dark().copyWith(
-          primaryColor: Color(0xff090C22),
-          scaffoldBackgroundColor: Color(0xff090C22)),
+      theme: ThemeData.dark()
+          .copyWith(primaryColor: primary, scaffoldBackgroundColor: scfbg),
       home: MainScreen(),
     );
   }
